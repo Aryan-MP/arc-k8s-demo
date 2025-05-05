@@ -1,0 +1,12 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# All non-namespace resources go into this namespace by default.
+namespace: cluster-config
+
+# First create namespaces, then deploy workloads.
+resources:
+  - namespaces/itops.yaml
+  - namespaces/team-a.yaml
+  - namespaces/team-b.yaml
+  - cluster-apps/arc-k8s-demo.yaml
